@@ -3,174 +3,616 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Nisha Bharwad's kawaii full-stack dev portfolio ♡ Django, React, and endless pastels." />
   <title>nisha.exe ♡</title>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Anime+Ace:wght@400;700&family=Comic+Neue:wght@700&family=Gaegu:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Anime+Ace:wght@400;700&family=Comic+Neue:wght@700&family=Gaegu:wght@700&family=Pacifico&display=swap');
 
     body {
       margin: 0;
-      background: url('https://i.imgur.com/0X5eQdL.png') repeat; /* pastel pink-purple checkerboard */
-      background-color: #fdf3ff;
+      background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 70%, #90EE90 100%); /* Sky to lush green field, Mina-style */
+      background-attachment: fixed;
       font-family: 'Comic Neue', cursive;
       color: #333;
-      image-rendering: pixelated;
+      overflow-x: hidden;
+      position: relative;
     }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255,140,0,0.1) 1px, transparent 1px), /* Orange fish splashes */
+        radial-gradient(circle at 80% 20%, rgba(255,105,180,0.05) 2px, transparent 2px); /* Pink lily dots */
+      background-size: 50px 50px, 100px 100px;
+      z-index: -1;
+      animation: gentleSway 15s ease-in-out infinite;
+    }
+    @keyframes gentleSway { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(5px) rotate(0.5deg); } }
+
+    /* Floating Chat Bubbles from Pics */
+    .bubble {
+      position: fixed;
+      background: rgba(255,248,220,0.9); /* Glassy white-pink */
+      border: 2px dashed #FF69B4;
+      border-radius: 20px;
+      padding: 10px 15px;
+      font-family: 'Pacifico', cursive;
+      color: #FF69B4;
+      font-size: 1rem;
+      z-index: 5;
+      animation: floatBubble 10s ease-in-out infinite;
+      box-shadow: 2px 2px 10px rgba(255,105,180,0.3);
+    }
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-20px) scale(1.05); opacity: 1; }
+    }
+    .bubble1 { top: 20%; left: 10%; content: '"I love you so much ♡"'; animation-delay: 0s; }
+    .bubble2 { top: 50%; right: 10%; content: '"Okay 💕"'; animation-delay: 3s; }
+    .bubble3 { bottom: 30%; left: 20%; content: '"Summer vibes 🌸"'; animation-delay: 6s; }
 
     .wrapper {
       max-width: 1100px;
       margin: 20px auto;
-      background: rgba(255,255,255,0.92);
-      border: 8px solid #000;
-      border-image: url('https://i.imgur.com/1qJ2K8m.png') 8 stretch; /* glitter border */
-      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      background: rgba(255,248,220,0.15); /* Subtle glassy screen */
+      border: 30px solid #C0C0C0; /* Chunky silver monitor bezel */
+      border-radius: 25px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.2), inset 0 0 15px rgba(255,255,255,0.3);
       position: relative;
+      overflow: hidden;
     }
 
-    /* Top Navigation Bar */
+    /* Monitor Stickers - More Accurate to Pic */
+    .sticker {
+      position: absolute;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1rem;
+      color: #FF8C00; /* Warm orange text */
+      background: linear-gradient(45deg, #FFF8DC, #FFE4B5);
+      padding: 8px 12px;
+      border-radius: 15px;
+      box-shadow: 3px 3px 0 #FF69B4;
+      animation: stickerDrift 4s ease-in-out infinite alternate;
+      z-index: 20;
+      border: 1px dashed #00CED1;
+    }
+    @keyframes stickerDrift { 0% { transform: translateX(0) rotate(0deg); } 100% { transform: translateX(3px) rotate(2deg); } }
+    .sticker1 { top: 5px; left: 15px; } /* Cool! */
+    .sticker2 { top: 5px; right: 15px; } /* Awesome! */
+    .sticker3 { bottom: 5px; left: 15px; } /* Hugs ♡ */
+    .sticker4 { bottom: 5px; right: 15px; } /* OMG! */
+    .sticker5 { top: 50%; left: -10px; transform: rotate(-90deg); font-size: 0.9rem; background: linear-gradient(45deg, #90EE90, #98FB98); } /* Oshizine */
+    .sticker6 { bottom: 40%; right: -10px; transform: rotate(90deg); background: linear-gradient(45deg, #87CEEB, #ADD8E6); } /* Kindness */
+
+    /* Topbar - Desktop Taskbar Vibe */
     .topbar {
-      background: linear-gradient(to right, #ff99cc, #cc99ff, #99ccff);
-      padding: 8px;
+      background: linear-gradient(to right, #FF69B4, #00CED1, #98FB98); /* Pink-teal-green gradient */
+      padding: 10px;
       text-align: center;
       font-weight: bold;
-      font-size: 1.4rem;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      border-bottom: 4px dashed #fff;
+      font-size: 1.3rem;
+      color: #FFF8DC;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+      border-bottom: 3px dashed #FF8C00; /* Orange dash */
+      position: relative;
     }
+    .topbar::after { content: '🖥️ Mina Desktop'; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; }
 
-    /* Header */
+    /* Header - Reminder Bubble */
     header {
       text-align: center;
-      padding: 30px 20px;
-      background: linear-gradient(to bottom, #fff3ff, #f3fff8);
+      padding: 25px 20px;
+      background: rgba(255,182,193,0.7); /* Soft pink bubble */
+      border: 3px dashed #FF69B4;
+      border-radius: 25px;
+      margin: 15px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(255,105,180,0.2);
+    }
+    header::before {
+      content: '💭 Reminder: You got this! ♡';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFF8DC;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-family: 'Pacifico';
+      color: #FF69B4;
+      border: 1px dashed #00CED1;
     }
     h1 {
       font-family: 'Gaegu', cursive;
-      font-size: 5rem;
-      background: linear-gradient(90deg, #ff66cc, #66ccff, #99ff99);
+      font-size: 4.5rem;
+      background: linear-gradient(90deg, #FF69B4, #00CED1, #FF8C00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: none;
       margin: 0;
+      animation: wave 3s ease-in-out infinite;
+    }
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
     .blink {
       animation: blink 1.5s infinite;
-      font-size: 2rem;
-      color: #ff66cc;
+      font-size: 1.8rem;
+      color: #FF8C00; /* Orange blink */
     }
     @keyframes blink { 50% { opacity: 0; } }
 
-    /* Main Layout - Flex Columns */
+    /* Main Layout */
     .main {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
+      gap: 15px;
+      padding: 15px;
     }
     .left-column, .right-column {
       flex: 1;
-      min-width: 300px;
+      min-width: 280px;
     }
     .center {
       flex: 2;
-      min-width: 320px;
+      min-width: 300px;
     }
 
-    /* Boxes */
+    /* Boxes - Chat Window Style */
     .box {
-      background: #fff;
-      border: 5px solid #000;
-      border-image: url('https://i.imgur.com/8vJ3kLm.png') 5 repeat; /* cute dotted border */
-      margin-bottom: 20px;
+      background: rgba(255,248,220,0.85);
+      backdrop-filter: blur(5px);
+      border: 2px dashed #00CED1; /* Teal dash */
+      margin-bottom: 15px;
       padding: 15px;
-      box-shadow: 8px 8px 0px #0003;
+      border-radius: 20px;
+      box-shadow: 4px 4px 0 rgba(0,206,209,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .box::before {
+      content: '⬜'; /* Minimize button */
+      position: absolute;
+      top: 5px;
+      right: 30px;
+      background: #FF69B4;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+    .box::after {
+      content: '🗗'; /* Maximize */
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #98FB98;
+      color: #333;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
     }
     .box h2 {
       font-family: 'Gaegu', cursive;
-      font-size: 2.2rem;
+      font-size: 2rem;
       text-align: center;
-      margin: 0 0 15px;
-      background: linear-gradient(to right, #ff99cc, #99ffcc);
+      margin: 0 0 12px;
+      background: linear-gradient(to right, #FF69B4, #98FB98);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .box h2::after { content: ' 🗨️'; }
 
-    /* About Me */
+    /* About - Fishbowl with Orange Accents */
     .about img {
       float: left;
-      width: 150px;
-      border: 6px solid #ffccff;
-      margin-right: 15px;
-      border-radius: 10px;
+      width: 140px;
+      border: 4px dashed #FF8C00;
+      border-radius: 50% 40% 50% 40%; /* Bowl curve */
+      margin-right: 12px;
+      box-shadow: 0 0 15px rgba(255,140,0,0.4);
+    }
+    .about::after {
+      content: '🐟 ...thinking of bugs';
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.3rem;
+      color: #FFF8DC;
+      background: #FF8C00;
+      padding: 6px 10px;
+      border-radius: 50%;
+      border: 2px dashed #FF69B4;
+      animation: thinkBubble 2s ease-in-out infinite;
+      z-index: 5;
+    }
+    @keyframes thinkBubble {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
     }
     .about p {
-      font-size: 1.3rem;
-      line-height: 1.7;
+      font-size: 1.2rem;
+      line-height: 1.6;
       text-align: justify;
+      border-right: 2px dashed #00CED1;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .about p::after {
+      content: '💕';
+      animation: cursorBlink 1s infinite;
+      margin-left: 2px;
+      color: #FF69B4;
+    }
+    @keyframes cursorBlink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
     }
 
-    /* Skills */
+    /* Spotify - AirDrop Share Window */
+    .spotify-container {
+      margin-top: 12px;
+      text-align: center;
+      background: rgba(135,206,235,0.6); /* Sky blue tint */
+      border: 2px dashed #00CED1;
+      border-radius: 18px;
+      padding: 12px;
+      position: relative;
+    }
+    .spotify-container::before {
+      content: '📱 AirDrop: Lo-fi Beats';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFF8DC;
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #FF69B4;
+      font-size: 0.9rem;
+    }
+    .spotify-container h3 {
+      font-family: 'Gaegu', cursive;
+      font-size: 1.4rem;
+      color: #FF8C00;
+      margin: 0 0 8px;
+    }
+    .spotify-player {
+      width: 100%;
+      height: 75px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 3px 3px 0 #00CED1;
+    }
+
+    /* Skills - Badge Stickers */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 10px;
     }
     .skill {
-      background: #ccffcc;
-      border: 4px solid #66bb6a;
-      padding: 12px;
+      background: rgba(152,251,152,0.8); /* Light green */
+      border: 2px dashed #98FB98;
+      padding: 10px;
       text-align: center;
       font-weight: bold;
-      border-radius: 15px;
-      box-shadow: 4px 4px 0 #66bb6a;
+      border-radius: 18px;
+      box-shadow: 3px 3px 0 #00CED1;
       transition: all 0.2s;
+      cursor: pointer;
+      role: "button";
+      tabindex: 0;
+      position: relative;
     }
-    .skill:hover {
-      transform: translate(-4px, -4px);
-      box-shadow: 8px 8px 0 #66bb6a;
+    .skill::after { content: '🌟'; position: absolute; top: -3px; right: -3px; font-size: 0.9rem; color: #FF8C00; }
+    .skill:hover, .skill:focus {
+      transform: translate(-3px, -3px) scale(1.03);
+      box-shadow: 5px 5px 0 #00CED1, 0 0 12px rgba(0,206,209,0.6);
+      background: rgba(152,251,152,1);
     }
 
-    /* Links */
+    /* Links - Message Bubbles */
     .links a {
       display: block;
-      margin: 10px 0;
-      padding: 12px;
-      background: #ffebff;
-      border: 3px dashed #ff66cc;
+      margin: 8px 0;
+      padding: 10px;
+      background: rgba(255,182,193,0.8);
+      border: 2px dashed #FF69B4;
       text-decoration: none;
-      color: #ff3399;
+      color: #FF8C00;
       font-weight: bold;
       text-align: center;
-      border-radius: 10px;
+      border-radius: 18px;
+      transition: all 0.3s;
+      position: relative;
     }
+    .links a::before { content: '💬 '; }
     .links a:hover {
-      background: #ffccff;
-      transform: scale(1.05);
+      background: rgba(255,105,180,0.9);
+      transform: scale(1.03) rotate(1deg);
+      color: #FFF8DC;
+    }
+    .cta-button {
+      background: linear-gradient(45deg, #FF69B4, #00CED1);
+      color: #FFF8DC;
+      border: none;
+      padding: 10px;
+      border-radius: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      animation: heartBeat 2s infinite;
+    }
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
     }
 
-    /* Decorations */
-    .deco {
-      position: absolute;
-      width: 100px;
-      filter: drop-shadow(2px 2px 4px #0003);
+    /* Projects - Folder Icons */
+    .project {
+      background: rgba(144,238,144,0.7);
+      border-left: 4px dashed #98FB98;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 12px;
+      position: relative;
     }
-    .deco1 { top: 10%; left: 5%; transform: rotate(-15deg); }
-    .deco2 { top: 30%; right: 3%; transform: rotate(20deg); }
-    .deco3 { bottom: 10%; left: 8%; transform: rotate(12deg); }
+    .project::before { content: '📂 '; position: absolute; top: 5px; right: 10px; font-size: 1.2rem; }
+    .project h3 {
+      margin: 0 0 4px;
+      color: #228B22;
+    }
+
+    /* Carousels - Notification Slides */
+    .fun-facts, .testimonials {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: rgba(173,216,230,0.5);
+      border-radius: 15px;
+      padding: 10px;
+      border: 1px dashed #00CED1;
+    }
+    .fun-fact, .testimonial {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+      font-style: italic;
+      font-size: 1rem;
+      color: #FF69B4;
+    }
+    .fun-fact.active, .testimonial.active {
+      opacity: 1;
+    }
+    .fun-fact p, .testimonial cite {
+      font-weight: bold;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    /* Newsletter - Shared Files */
+    .newsletter {
+      text-align: center;
+      margin-top: 12px;
+      padding: 10px;
+      background: rgba(144,238,144,0.8);
+      border: 2px dashed #98FB98;
+      border-radius: 18px;
+    }
+    .newsletter h3 {
+      margin: 0 0 8px;
+      color: #FF8C00;
+    }
+    .newsletter h3::before { content: '📤 '; }
+    .newsletter form {
+      display: flex;
+      gap: 5px;
+    }
+    .newsletter input {
+      flex: 1;
+      padding: 8px;
+      border: 2px dashed #00CED1;
+      border-radius: 10px;
+      background: rgba(255,248,220,0.9);
+    }
+    .newsletter button {
+      padding: 8px 10px;
+      background: #98FB98;
+      color: #333;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Decos - Lily Pad Swimmers */
+    .deco {
+      position: fixed;
+      width: 70px;
+      filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.2));
+      z-index: 8;
+      will-change: transform;
+      animation: swim 7s ease-in-out infinite;
+    }
+    @keyframes swim {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
+    }
+    .deco1 { top: 25%; left: 5%; --speed: 0.3; }
+    .deco2 { top: 45%; right: 5%; --speed: 0.4; }
+    .deco3 { bottom: 25%; left: 10%; --speed: 0.5; }
 
     footer {
       text-align: center;
-      padding: 20px;
-      background: linear-gradient(to right, #ff99cc, #99ccff);
-      color: white;
+      padding: 18px;
+      background: linear-gradient(to right, #FF69B4, #00CED1);
+      color: #FFF8DC;
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
+      margin: 15px;
+      border-radius: 20px;
+      border: 2px dashed #FF8C00;
+      box-shadow: 0 -3px 10px rgba(255,140,0,0.3);
     }
+
+    /* Sticky - Taskbar Nudge */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,105,180,0.95);
+      padding: 8px;
+      text-align: center;
+      color: #FFF8DC;
+      font-weight: bold;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+      z-index: 50;
+      border-top: 2px dashed #00CED1;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta button {
+      background: #98FB98;
+      color: #FF69B4;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-left: 8px;
+      font-family: 'Pacifico';
+    }
+
+    /* Modal - Popup Notification */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(135,206,235,0.85); /* Sky overlay */
+      z-index: 100;
+      animation: fadeIn 0.3s;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,248,220,0.95);
+      padding: 25px;
+      border-radius: 25px;
+      max-width: 380px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border: 3px dashed #FF69B4;
+      animation: bounceIn 0.5s;
+    }
+    @keyframes bounceIn {
+      0% { transform: translate(-50%, -50%) scale(0.3); }
+      50% { transform: translate(-50%, -50%) scale(1.03); }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+    .modal h2 {
+      color: #FF8C00;
+      margin-bottom: 18px;
+      font-family: 'Pacifico';
+    }
+    .modal h2::before { content: '💌 '; }
+    .modal form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .modal input, .modal textarea {
+      padding: 10px;
+      border: 2px dashed #00CED1;
+      border-radius: 12px;
+      background: rgba(173,216,230,0.6);
+      font-family: inherit;
+    }
+    .modal button {
+      background: linear-gradient(45deg, #FF69B4, #98FB98);
+      color: #FFF8DC;
+      border: none;
+      padding: 10px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .modal button:hover { transform: scale(1.02); }
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #FF69B4;
+    }
+    .toast {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: rgba(152,251,152,0.95);
+      color: #228B22;
+      padding: 12px;
+      border-radius: 15px;
+      z-index: 101;
+      display: none;
+      animation: slideIn 0.3s;
+      border: 2px dashed #98FB98;
+    }
+    @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      h1 { font-size: 3rem; }
+      .main { flex-direction: column; }
+      .left-column, .right-column, .center { min-width: 100%; }
+      .about img { float: none; display: block; margin: 0 auto 10px; }
+      .about::after { position: static; display: block; margin: 8px auto; text-align: center; }
+      .skills-grid { grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); }
+      .spotify-player { height: 55px; }
+      .deco { width: 50px; }
+      .newsletter form { flex-direction: column; }
+      .wrapper { border-width: 15px; margin: 5px; }
+      .bubble { font-size: 0.8rem; padding: 8px 10px; }
+    }
+
+    #confetti { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 100; display: none; }
   </style>
 </head>
 <body>
 
+<!-- Floating Bubbles -->
+<div class="bubble bubble1">I love you so much ♡</div>
+<div class="bubble bubble2">Okay 💕</div>
+<div class="bubble bubble3">Summer 🌸</div>
+
 <div class="wrapper">
+  <div class="sticker sticker1">Cool! 🌿</div>
+  <div class="sticker sticker2">Awesome! 💖</div>
+  <div class="sticker sticker3">Hugs ♡ 🐱</div>
+  <div class="sticker sticker4">OMG! 🐸</div>
+  <div class="sticker sticker5">Oshizine</div>
+  <div class="sticker sticker6">Kindness</div>
 
   <div class="topbar">
     ← BACK TO HOME || NISHA'S PORTFOLIO ♡ ONLINE SINCE 2025 →
@@ -187,15 +629,28 @@
     <div class="left-column">
       <div class="box">
         <h2>currently ♡</h2>
-        <p>coding with lo-fi • eating pocky • dreaming in pastel • watching slice-of-life anime • collecting cute stickers</p>
+        <p>coding with lo-fi • munching thanksgiving pocky • dreaming in pastel • binging fall 2025 anime (Spy x Family S3 hype!) • collecting glow-in-dark stickers</p>
+        <div class="spotify-container">
+          <h3>vibing to ♡</h3>
+          <div class="spotify-player">
+            <iframe src="https://open.spotify.com/embed/playlist/1QcsybeUidDJIrPQTHS6dD" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          </div>
+        </div>
       </div>
 
       <div class="box links">
         <h2>links! ♡</h2>
-        <a href="#">my github</a>
-        <a href="#">my linkedin</a>
-        <a href="#">my dribbble</a>
-        <a href="#">email me~</a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener">my github</a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">my linkedin</a>
+        <a href="https://dribbble.com/yourusername" target="_blank" rel="noopener">my dribbble</a>
+        <button class="cta-button" onclick="openModal()">send a hug~</button>
+        <div class="newsletter">
+          <h3>psst, want updates? 🌟</h3>
+          <form action="https://your-mailchimp-url.us20.list-manage.com/subscribe/post?u=xxx&id=yyy" method="post" target="_blank">
+            <input type="email" placeholder="your email for cute drops" required>
+            <button type="submit">subscribe!</button>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -203,8 +658,8 @@
     <div class="center">
       <div class="box about">
         <h2>about me! ✧</h2>
-        <img src="https://i.imgur.com/your-chibi-or-photo.png" alt="nisha chibi" />
-        <p>
+        <img src="https://png.pngtree.com/png-clipart/20230612/original/pngtree-cute-chibi-girl-coding-cartoon-png-image_9100578.png" alt="Chibi Nisha coding with headphones and a mint-green laptop, surrounded by floating cat emojis" loading="lazy" />
+        <p id="bio-text">
           hiiii i'm nisha! (´｡• ᵕ •｡`) ♡ full-stack dev who codes in django + react while vibing to old anime OSTs at 3am. 
           i love mint green, cats with headphones, frogs with guitars, and making things that feel like a warm hug. 
           currently learning rust but mostly crying over bugs and collecting cute pngs lol
@@ -214,15 +669,27 @@
 
       <div class="box">
         <h2>skills get! ★</h2>
-        <div class="skills-grid">
-          <div class="skill">Django</div>
-          <div class="skill">React</div>
-          <div class="skill">Python</div>
-          <div class="skill">JavaScript</div>
-          <div class="skill">HTML/CSS</div>
-          <div class="skill">MySQL</div>
-          <div class="skill">C • Java</div>
-          <div class="skill">being cute</div>
+        <div class="skills-grid" id="skills">
+          <div class="skill" data-confetti="true">Django</div>
+          <div class="skill" data-confetti="true">React</div>
+          <div class="skill" data-confetti="true">Python</div>
+          <div class="skill" data-confetti="true">JavaScript</div>
+          <div class="skill" data-confetti="true">HTML/CSS</div>
+          <div class="skill" data-confetti="true">MySQL</div>
+          <div class="skill" data-confetti="true">C • Java</div>
+          <div class="skill" data-confetti="true">being cute</div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2>projects! 🌟</h2>
+        <div class="project">
+          <h3>Pastel Planner App</h3>
+          <p>Django/React todo list with anime-themed stickers. Live: <a href="#">demo.link</a></p>
+        </div>
+        <div class="project">
+          <h3>Frog Jam Studio</h3>
+          <p>Web audio toy where frogs shred guitars. JS + Web Audio API magic.</p>
         </div>
       </div>
     </div>
@@ -231,7 +698,7 @@
     <div class="right-column">
       <div class="box">
         <h2>fav things ♡</h2>
-        <ul style="font-size:1.3rem; line-height:1.8;">
+        <ul style="font-size:1.2rem; line-height:1.7;">
           <li>mint green everything</li>
           <li>skateboard cats</li>
           <li>guitar frogs</li>
@@ -239,6 +706,22 @@
           <li>ramyeon at 2am</li>
           <li>collecting stamps</li>
         </ul>
+      </div>
+      <div class="box">
+        <h2>fun facts! 🐸</h2>
+        <div class="fun-facts">
+          <div class="fun-fact active"><p>I've debugged code while eating 3 pocky sticks at once. Multitasking queen! ♡</p></div>
+          <div class="fun-fact"><p>My first "app" was a Tamagotchi fanfic in HTML. It fed itself virtual ramyeon.</p></div>
+          <div class="fun-fact"><p>Rust is hard, but frogs make it bearable. Ribbit-level: expert.</p></div>
+        </div>
+      </div>
+      <div class="box">
+        <h2>what folks say ♡</h2>
+        <div class="testimonials">
+          <div class="testimonial active">"Nisha's code hugs back—literally saved my midnight ramyeon run with that bug fix! 🐸" <cite>— Alex, Fellow Dev</cite></div>
+          <div class="testimonial">"Pastel perfection. Her frog app had me jamming till dawn. 10/10 would collab." <cite>— Jamie, Designer</cite></div>
+          <div class="testimonial">"If bugs were anime villains, Nisha's the magical girl slaying them. Adorable & unstoppable!" <cite>— Sam, PM</cite></div>
+        </div>
       </div>
     </div>
 
@@ -250,10 +733,162 @@
 
 </div>
 
-<!-- Cute floating friends -->
-<img src="https://your-skateboard-cat.png" class="deco deco1" alt=""/>
-<img src="https://your-cat-stamp.png" class="deco deco2" alt=""/>
-<img src="https://your-guitar-frog.png" class="deco deco3" alt=""/>
+<!-- Decos -->
+<img src="https://png.pngtree.com/png-clipart/20230701/original/pngtree-cute-skateboard-cat-illustration-png-image_9200580.png" class="deco deco1" alt="Floating lily pad cat" loading="lazy" />
+<img src="https://png.pngtree.com/png-clipart/20230615/original/pngtree-cute-cat-stamp-illustration-png-image_9100582.png" class="deco deco2" alt="Drifting ribbon cat" loading="lazy" />
+<img src="https://png.pngtree.com/png-clipart/20230630/original/pngtree-cute-frog-with-guitar-singing-png-image_9200579.png" class="deco deco3" alt="Swimming guitar frog" loading="lazy" />
+
+<!-- Sticky CTA -->
+<div class="sticky-cta" id="stickyCta">
+  Scrolled far? Let's chat code & cats! <button onclick="openModal()">Say hi ♡</button>
+</div>
+
+<!-- Contact Modal -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>send me a hug! (´｡• ᵕ •｡`)</h2>
+    <form id="contactForm">
+      <input type="text" id="userName" placeholder="your name ♡" required>
+      <input type="email" id="userEmail" placeholder="your email" required>
+      <textarea id="userMessage" placeholder="what's up? (pro tip: add a 🐸 or 🐱 emoji!)" rows="4" required></textarea>
+      <button type="submit">launch hug!</button>
+    </form>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast">Hug received! Confetti incoming... ♡</div>
+
+<canvas id="confetti"></canvas>
+<script>
+  // EmailJS Init (replace with your keys)
+  emailjs.init("YOUR_USER_ID");
+
+  // Typing Effect
+  const bioText = "hiiii i'm nisha! (´｡• ᵕ •｡`) ♡ full-stack dev who codes in django + react while vibing to old anime OSTs at 3am. i love mint green, cats with headphones, frogs with guitars, and making things that feel like a warm hug. currently learning rust but mostly crying over bugs and collecting cute pngs lol";
+  const bioEl = document.getElementById('bio-text');
+  let i = 0;
+  function typeWriter() {
+    if (i < bioText.length) {
+      bioEl.innerHTML = bioText.slice(0, i + 1).replace(/ /g, '&nbsp;') + '<span style="opacity:0;">💕</span>';
+      i++;
+      setTimeout(typeWriter, 50);
+    } else {
+      bioEl.style.borderRight = 'none';
+    }
+  }
+  window.addEventListener('load', typeWriter);
+
+  // Carousels
+  const facts = document.querySelectorAll('.fun-fact');
+  let factIndex = 0;
+  setInterval(() => {
+    facts[factIndex].classList.remove('active');
+    factIndex = (factIndex + 1) % facts.length;
+    facts[factIndex].classList.add('active');
+  }, 4000);
+
+  const testimonials = document.querySelectorAll('.testimonial');
+  let testiIndex = 0;
+  setInterval(() => {
+    testimonials[testiIndex].classList.remove('active');
+    testiIndex = (testiIndex + 1) % testimonials.length;
+    testimonials[testiIndex].classList.add('active');
+  }, 5000);
+
+  // Parallax
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    document.querySelectorAll('.deco').forEach(deco => {
+      const speed = deco.getAttribute('--speed') || 0.4;
+      deco.style.transform = `translateY(${scrolled * speed}px) rotate(${deco.getAttribute('--rotation') || '0deg'})`;
+    });
+    const sticky = document.getElementById('stickyCta');
+    if (scrolled > window.innerHeight / 2) {
+      sticky.classList.add('show');
+    }
+  });
+
+  // Modal Functions
+  function openModal() {
+    document.getElementById('contactModal').style.display = 'block';
+  }
+  function closeModal() {
+    document.getElementById('contactModal').style.display = 'none';
+  }
+  let scrollTimer;
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      if (window.pageYOffset > window.innerHeight && !document.getElementById('contactModal').style.display) {
+        openModal();
+      }
+    }, 10000);
+  });
+
+  // Form Submit
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const params = {
+      from_name: document.getElementById('userName').value,
+      from_email: document.getElementById('userEmail').value,
+      message: document.getElementById('userMessage').value,
+    };
+    if (!params.message.includes('🐸') && !params.message.includes('🐱')) {
+      alert('Aw, toss in a frog or cat emoji for extra cuteness? 🥺');
+      return;
+    }
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params).then(() => {
+      showToast();
+      drawConfetti(window.innerWidth / 2, window.innerHeight / 2);
+      this.reset();
+      closeModal();
+    }).catch(() => alert('Oops, hug bounced—try again?'));
+  });
+
+  function showToast() {
+    const toast = document.getElementById('toast');
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 3000);
+  }
+
+  // Confetti - Pink/Teal Hearts
+  function drawConfetti(x, y) {
+    for (let i = 0; i < 30; i++) {
+      const conf = document.createElement('div');
+      conf.innerHTML = '💕';
+      conf.style.cssText = `
+        position: fixed; left: ${x}px; top: ${y}px; font-size: 14px;
+        color: ${['#FF69B4', '#00CED1', '#98FB98'][Math.floor(Math.random()*3)]};
+        pointer-events: none; z-index: 101;
+        text-shadow: 0 0 4px currentColor;
+      `;
+      document.body.appendChild(conf);
+      let pos = 0, rot = 0;
+      const fall = setInterval(() => {
+        pos += 2 + Math.random() * 3;
+        rot += 8;
+        conf.style.top = (y + pos) + 'px';
+        conf.style.transform = `rotate(${rot}deg) translateX(${Math.sin(pos/8)*4}px)`;
+        conf.style.opacity = Math.max(0, 1 - (pos / 180));
+        if (pos > 180) {
+          clearInterval(fall);
+          conf.remove();
+        }
+      }, 50);
+    }
+  }
+
+  document.querySelectorAll('.skill[data-confetti="true"]').forEach(skill => {
+    const handler = (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      drawConfetti(rect.left + rect.width/2, rect.top + rect.height/2);
+    };
+    skill.addEventListener('mouseenter', handler);
+    skill.addEventListener('focus', handler);
+  });
+</script>
 
 </body>
 </html>
