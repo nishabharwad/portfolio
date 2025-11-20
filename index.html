@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>nisha.exe ♡</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anime+Ace:wght@400;700&family=Comic+Neue:wght@700&family=Gaegu:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      background: url('https://i.imgur.com/0X5eQdL.png') repeat; /* pastel pink-purple checkerboard */
+      background-color: #fdf3ff;
+      font-family: 'Comic Neue', cursive;
+      color: #333;
+      image-rendering: pixelated;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: rgba(255,255,255,0.92);
+      border: 8px solid #000;
+      border-image: url('https://i.imgur.com/1qJ2K8m.png') 8 stretch; /* glitter border */
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    /* Top Navigation Bar */
+    .topbar {
+      background: linear-gradient(to right, #ff99cc, #cc99ff, #99ccff);
+      padding: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      border-bottom: 4px dashed #fff;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(to bottom, #fff3ff, #f3fff8);
+    }
+    h1 {
+      font-family: 'Gaegu', cursive;
+      font-size: 5rem;
+      background: linear-gradient(90deg, #ff66cc, #66ccff, #99ff99);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: none;
+      margin: 0;
+    }
+    .blink {
+      animation: blink 1.5s infinite;
+      font-size: 2rem;
+      color: #ff66cc;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Main Layout - Flex Columns */
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    .left-column, .right-column {
+      flex: 1;
+      min-width: 300px;
+    }
+    .center {
+      flex: 2;
+      min-width: 320px;
+    }
+
+    /* Boxes */
+    .box {
+      background: #fff;
+      border: 5px solid #000;
+      border-image: url('https://i.imgur.com/8vJ3kLm.png') 5 repeat; /* cute dotted border */
+      margin-bottom: 20px;
+      padding: 15px;
+      box-shadow: 8px 8px 0px #0003;
+    }
+    .box h2 {
+      font-family: 'Gaegu', cursive;
+      font-size: 2.2rem;
+      text-align: center;
+      margin: 0 0 15px;
+      background: linear-gradient(to right, #ff99cc, #99ffcc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* About Me */
+    .about img {
+      float: left;
+      width: 150px;
+      border: 6px solid #ffccff;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+    .about p {
+      font-size: 1.3rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+    }
+    .skill {
+      background: #ccffcc;
+      border: 4px solid #66bb6a;
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 15px;
+      box-shadow: 4px 4px 0 #66bb6a;
+      transition: all 0.2s;
+    }
+    .skill:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 8px 8px 0 #66bb6a;
+    }
+
+    /* Links */
+    .links a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px;
+      background: #ffebff;
+      border: 3px dashed #ff66cc;
+      text-decoration: none;
+      color: #ff3399;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .links a:hover {
+      background: #ffccff;
+      transform: scale(1.05);
+    }
+
+    /* Decorations */
+    .deco {
+      position: absolute;
+      width: 100px;
+      filter: drop-shadow(2px 2px 4px #0003);
+    }
+    .deco1 { top: 10%; left: 5%; transform: rotate(-15deg); }
+    .deco2 { top: 30%; right: 3%; transform: rotate(20deg); }
+    .deco3 { bottom: 10%; left: 8%; transform: rotate(12deg); }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(to right, #ff99cc, #99ccff);
+      color: white;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="topbar">
+    ← BACK TO HOME || NISHA'S PORTFOLIO ♡ ONLINE SINCE 2025 →
+  </div>
+
+  <header>
+    <h1>NISHA BHARWAD</h1>
+    <p class="blink">✧ NOW LOADING... 100% ✧</p>
+  </header>
+
+  <div class="main">
+
+    <!-- Left Column -->
+    <div class="left-column">
+      <div class="box">
+        <h2>currently ♡</h2>
+        <p>coding with lo-fi • eating pocky • dreaming in pastel • watching slice-of-life anime • collecting cute stickers</p>
+      </div>
+
+      <div class="box links">
+        <h2>links! ♡</h2>
+        <a href="#">my github</a>
+        <a href="#">my linkedin</a>
+        <a href="#">my dribbble</a>
+        <a href="#">email me~</a>
+      </div>
+    </div>
+
+    <!-- Center -->
+    <div class="center">
+      <div class="box about">
+        <h2>about me! ✧</h2>
+        <img src="https://i.imgur.com/your-chibi-or-photo.png" alt="nisha chibi" />
+        <p>
+          hiiii i'm nisha! (´｡• ᵕ •｡`) ♡ full-stack dev who codes in django + react while vibing to old anime OSTs at 3am. 
+          i love mint green, cats with headphones, frogs with guitars, and making things that feel like a warm hug. 
+          currently learning rust but mostly crying over bugs and collecting cute pngs lol
+        </p>
+        <br clear="all"/>
+      </div>
+
+      <div class="box">
+        <h2>skills get! ★</h2>
+        <div class="skills-grid">
+          <div class="skill">Django</div>
+          <div class="skill">React</div>
+          <div class="skill">Python</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">HTML/CSS</div>
+          <div class="skill">MySQL</div>
+          <div class="skill">C • Java</div>
+          <div class="skill">being cute</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+      <div class="box">
+        <h2>fav things ♡</h2>
+        <ul style="font-size:1.3rem; line-height:1.8;">
+          <li>mint green everything</li>
+          <li>skateboard cats</li>
+          <li>guitar frogs</li>
+          <li>old anime websites</li>
+          <li>ramyeon at 2am</li>
+          <li>collecting stamps</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 nisha bharwad ♡ made with love, caffeine, and too many glitter gifs
+  </footer>
+
+</div>
+
+<!-- Cute floating friends -->
+<img src="https://your-skateboard-cat.png" class="deco deco1" alt=""/>
+<img src="https://your-cat-stamp.png" class="deco deco2" alt=""/>
+<img src="https://your-guitar-frog.png" class="deco deco3" alt=""/>
+
+</body>
+</html>
