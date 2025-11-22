@@ -12,7 +12,105 @@
   <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Comic+Neue:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
 
   <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+
+  <script>
+<script>
+// -----------------------
+// OPEN / CLOSE MODAL
+// -----------------------
+function openModal() {
+  document.getElementById("contactModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("contactModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+  let modal = document.getElementById("contactModal");
+  if (event.target === modal) closeModal();
+};
+
+
+// -----------------------
+// FAKE HUG SENDER (NO BACKEND REQUIRED)
+// -----------------------
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // 1. Close modal
+  closeModal();
+
+  // 2. Show toast
+  showToast();
+
+  // 3. Launch confetti
+  launchConfetti();
+
+  // 4. Reset form
+  document.getElementById("contactForm").reset();
+});
+
+
+// -----------------------
+// TOAST
+// -----------------------
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.style.display = "block";
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 2500);
+}
+
+
+// -----------------------
+// CONFETTI EFFECT
+// -----------------------
+function launchConfetti() {
+  const canvas = document.getElementById("confetti");
+  const ctx = canvas.getContext("2d");
+
+  canvas.style.display = "block";
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let pieces = [];
+  let count = 120;
+
+  for (let i = 0; i < count; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      size: Math.random() * 8 + 2,
+      speed: Math.random() * 3 + 1,
+      color: `hsl(${Math.random() * 360}, 80%, 60%)`
+    });
+  }
+
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach((p) => {
+      p.y += p.speed;
+      if (p.y > canvas.height) p.y = -10;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x, p.y, p.size, p.size);
+    });
+    requestAnimationFrame(update);
+  }
+
+  update();
+
+  setTimeout(() => {
+    canvas.style.display = "none";
+  }, 3000);
+}
+</script>
+
+</script>
+
+  </script>
 
   <!-- LINKED EXTERNAL CSS -->
   <link rel="stylesheet" href="style.css">
