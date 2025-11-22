@@ -800,36 +800,3 @@ footer {
   z-index: 100;
   display: none;
 }
-.cute-window {
-  width: 100%;
-  padding-top: 5px;
-}
-
-.window-top {
-  background: linear-gradient(90deg, #ffe4f7, #d4f9ff);
-  padding: 12px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 2px dashed #FF69B4;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
-}
-
-.window-top p {
-  font-family: 'Gaegu';
-  font-size: 1.4rem;
-  color: #FF69B4;
-  margin: 0;
-}
-
-.w-btn {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-}
-
-.pink { background: #FF8CCF; }
-.blue { background: #87CEFA; }
-.mint { background: #98FFCD; }
