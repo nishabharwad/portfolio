@@ -5,126 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Nisha's full-stack dev portfolio" />
   <title>archive</title>
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Comic+Neue:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
-
-  <!-- EmailJS -->
-  <script>
-
-  <script>
-<script>
-// -----------------------
-// OPEN / CLOSE MODAL
-// -----------------------
-function openModal() {
-  document.getElementById("contactModal").style.display = "block";
-}
-
-function closeModal() {
-  document.getElementById("contactModal").style.display = "none";
-}
-
-window.onclick = function(event) {
-  let modal = document.getElementById("contactModal");
-  if (event.target === modal) closeModal();
-};
-
-
-// -----------------------
-// FAKE HUG SENDER (NO BACKEND REQUIRED)
-// -----------------------
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  // 1. Close modal
-  closeModal();
-
-  // 2. Show toast
-  showToast();
-
-  // 3. Launch confetti
-  launchConfetti();
-
-  // 4. Reset form
-  document.getElementById("contactForm").reset();
-});
-
-
-// -----------------------
-// TOAST
-// -----------------------
-function showToast() {
-  const toast = document.getElementById("toast");
-  toast.style.display = "block";
-  setTimeout(() => {
-    toast.style.display = "none";
-  }, 2500);
-}
-
-
-// -----------------------
-// CONFETTI EFFECT
-// -----------------------
-function launchConfetti() {
-  const canvas = document.getElementById("confetti");
-  const ctx = canvas.getContext("2d");
-
-  canvas.style.display = "block";
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  let pieces = [];
-  let count = 120;
-
-  for (let i = 0; i < count; i++) {
-    pieces.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height - canvas.height,
-      size: Math.random() * 8 + 2,
-      speed: Math.random() * 3 + 1,
-      color: `hsl(${Math.random() * 360}, 80%, 60%)`
-    });
-  }
-
-  function update() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    pieces.forEach((p) => {
-      p.y += p.speed;
-      if (p.y > canvas.height) p.y = -10;
-      ctx.fillStyle = p.color;
-      ctx.fillRect(p.x, p.y, p.size, p.size);
-    });
-    requestAnimationFrame(update);
-  }
-
-  update();
-
-  setTimeout(() => {
-    canvas.style.display = "none";
-  }, 3000);
-}
-</script>
-
-</script>
-
-  </script>
-
   <!-- LINKED EXTERNAL CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
   <!-- Floating Bubbles -->
   <div class="bubble bubble1">ain't it crazy </div>
   <div class="bubble bubble2">i've got you</div>
   <div class="bubble bubble3">crazyyyyy</div>
-
   <div class="wrapper">
-
     <!-- Stickers -->
     <div class="sticker sticker1">Cool! 🌿</div>
     <div class="sticker sticker2">Awesome!</div>
@@ -132,31 +25,25 @@ function launchConfetti() {
     <div class="sticker sticker4">OMG! 🐸</div>
     <div class="sticker sticker5">brainrot</div>
     <div class="sticker sticker6">exhausted</div>
-
     <!-- Topbar -->
     <div class="topbar">
       ← get ready to dive into Nisha's universe →
     </div>
-
     <!-- Header -->
     <header>
       <h1>NISHA BHARWAD</h1>
       <p class="blink">✧ NOW LOADING... 100% ✧</p>
     </header>
-
     <div class="main">
-
       <!-- LEFT COLUMN -->
       <div class="left-column">
-
         <div class="box">
           <h2>currently . . . </h2>
           <p>
-            coding with 0% social battery • daydreaming in full cinematic mode •  
-            replaying dramas for emotional analysis •  
+            coding with 0% social battery • daydreaming in full cinematic mode •
+            replaying dramas for emotional analysis •
             aligning my aesthetic with my destiny • collecting small luxuries to feel alive
           </p>
-
           <!-- SPOTIFY -->
           <div class="spotify-container">
             <h3>vibing to </h3>
@@ -170,7 +57,6 @@ function launchConfetti() {
             </div>
           </div>
         </div>
-
         <div class="box links">
           <h2>links! </h2>
           <a href="https://github.com/nishabharwad" target="_blank">my github</a>
@@ -178,30 +64,22 @@ function launchConfetti() {
           <a href="https://www.xiaohongshu.com/user/profile/6785f5de000000000803c39f" target="_blank">my rednote</a>
           <button class="cta-button" onclick="openModal()">send a hug~</button>
         </div>
-
       </div>
-
       <!-- CENTER -->
       <div class="center">
-
         <div class="box about">
           <h2>about me! ✧</h2>
           <img src="chibi.jpg"
             alt="Chibi Nisha coding" />
-
           <p id="bio-text">
             hi, i’m nisha — a genz full-stack dev who codes with a sketchbook
             on one side and a playlist on the other. <br><br>
-
             i love designing cute web apps, editing, creating art, writing stories,
             and making digital spaces that feel warm + personal. <br><br>
-
             currently deep in javascript arc, crying + learning simultaneously.
           </p>
-
           <br clear="all"/>
         </div>
-
         <div class="box">
           <h2>skills get! ★</h2>
           <div class="skills-grid" id="skills">
@@ -211,20 +89,16 @@ function launchConfetti() {
             <div class="skill" data-confetti="true">Node JS</div>
             <div class="skill" data-confetti="true">Python</div>
             <div class="skill" data-confetti="true">HTML/CSS</div>
-
             <div class="skill" data-confetti="true">MySQL / SQL</div>
             <div class="skill" data-confetti="true">Git & GitHub</div>
             <div class="skill" data-confetti="true">UI/UX Design</div>
             <div class="skill" data-confetti="true">Figma</div>
-
             <div class="skill" data-confetti="true">C • Java</div>
-
             <div class="skill" data-confetti="true">Editing</div>
             <div class="skill" data-confetti="true">Content Creation</div>
             <div class="skill" data-confetti="true">Creative Writing</div>
           </div>
         </div>
-
         <div class="box">
           <h2>projects! 🌟</h2>
           <div class="project">
@@ -242,12 +116,9 @@ function launchConfetti() {
             </p>
           </div>
         </div>
-
       </div>
-
       <!-- RIGHT -->
       <div class="right-column">
-
         <div class="box">
           <h2>the state you'll find me in at 3am</h2>
           <ul>
@@ -259,40 +130,32 @@ function launchConfetti() {
             <li>catching up on webtoons instead of sleeping</li>
           </ul>
         </div>
-
         <div class="box">
           <h2>fun facts! 🐸</h2>
           <div class="fun-facts">
             <div class="fun-fact active">
               <p>I can daydream a whole cinematic universe in 5 minutes. INTP superpower unlocked ✧</p>
             </div>
-
             <div class="fun-fact">
               <p>I learn 5+ languages, code, and procrastinate at the same time. True multitasking royalty ♡</p>
             </div>
-
             <div class="fun-fact">
               <p>If perfection isn't achieved, I will redo the entire project at 3AM without blinking.</p>
             </div>
-
             <div class="fun-fact">
               <p>I love wandering city streets at night with music. Moonlight + playlists = therapy.</p>
             </div>
-
             <div class="fun-fact">
               <p>I can turn any topic into a full obsession for 72 hours straight. Efficient chaos.</p>
             </div>
-
             <div class="fun-fact">
               <p>I love tech not just to build things — but to understand the concepts behind everything.</p>
             </div>
-
             <div class="fun-fact">
               <p>I'm either extremely confident or existential — no in-between.</p>
             </div>
           </div>
         </div>
-
         <div class="box">
           <h2>what folks say ♡</h2>
           <div class="testimonials">
@@ -307,34 +170,26 @@ function launchConfetti() {
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
-
     <footer>
       © 2025 nisha bharwad ♡ made with love, caffeine, and too many glitter gifs
     </footer>
-
   </div>
-
   <!-- Deco Images -->
   <img src="https://png.pngtree.com/png-clipart/20230701/original/pngtree-cute-skateboard-cat-illustration-png-image_9200580.png" class="deco deco1" alt="">
   <img src="https://png.pngtree.com/png-clipart/20230615/original/pngtree-cute-cat-stamp-illustration-png-image_9100582.png" class="deco deco2" alt="">
   <img src="https://png.pngtree.com/png-clipart/20230630/original/pngtree-cute-frog-with-guitar-singing-png-image_9200579.png" class="deco deco3" alt="">
-
   <!-- Sticky CTA -->
   <div class="sticky-cta" id="stickyCta">
     Scrolled far? Let's chat code & cats!
     <button onclick="openModal()">Say hi ♡</button>
   </div>
-
   <!-- Contact Modal -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2>send me a hug! (´｡• ᵕ •｡`)</h2>
-
       <form id="contactForm">
         <input type="text" id="userName" placeholder="your name ♡" required>
         <input type="email" id="userEmail" placeholder="your email" required>
@@ -343,17 +198,115 @@ function launchConfetti() {
       </form>
     </div>
   </div>
-
   <!-- Toast -->
   <div id="toast" class="toast">Hug received! Confetti incoming... ♡</div>
-
   <!-- Confetti Canvas -->
   <canvas id="confetti"></canvas>
-
-  <!-- JAVASCRIPT (keep your original JS here) -->
+  <!-- JAVASCRIPT -->
   <script>
-    /* put your original JS here – EmailJS init, confetti, carousels, modal, etc. */
+    // -----------------------
+    // OPEN / CLOSE MODAL
+    // -----------------------
+    function openModal() {
+      document.getElementById("contactModal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("contactModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+      let modal = document.getElementById("contactModal");
+      if (event.target === modal) closeModal();
+    };
+    // -----------------------
+    // FAKE HUG SENDER (NO BACKEND REQUIRED)
+    // -----------------------
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      // 1. Close modal
+      closeModal();
+      // 2. Show toast
+      showToast();
+      // 3. Launch confetti
+      launchConfetti();
+      // 4. Reset form
+      document.getElementById("contactForm").reset();
+    });
+    // -----------------------
+    // TOAST
+    // -----------------------
+    function showToast() {
+      const toast = document.getElementById("toast");
+      toast.style.display = "block";
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 2500);
+    }
+    // -----------------------
+    // CONFETTI EFFECT
+    // -----------------------
+    function launchConfetti() {
+      const canvas = document.getElementById("confetti");
+      const ctx = canvas.getContext("2d");
+      canvas.style.display = "block";
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      let pieces = [];
+      let count = 120;
+      for (let i = 0; i < count; i++) {
+        pieces.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          size: Math.random() * 8 + 2,
+          speed: Math.random() * 3 + 1,
+          color: `hsl(${Math.random() * 360}, 80%, 60%)`
+        });
+      }
+      function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach((p) => {
+          p.y += p.speed;
+          if (p.y > canvas.height) p.y = -10;
+          ctx.fillStyle = p.color;
+          ctx.fillRect(p.x, p.y, p.size, p.size);
+        });
+        requestAnimationFrame(update);
+      }
+      update();
+      setTimeout(() => {
+        canvas.style.display = "none";
+      }, 3000);
+    }
+    // -----------------------
+    // STICKY CTA SHOW/HIDE
+    // -----------------------
+    window.addEventListener('scroll', function() {
+      const stickyCta = document.getElementById('stickyCta');
+      if (window.scrollY > 500) {
+        stickyCta.classList.add('show');
+      } else {
+        stickyCta.classList.remove('show');
+      }
+    });
+    // -----------------------
+    // SKILLS HOVER CONFETTI (OPTIONAL - IF YOU WANT TO ADD)
+    // -----------------------
+    document.querySelectorAll('.skill[data-confetti="true"]').forEach(skill => {
+      skill.addEventListener('click', launchConfetti);
+    });
+    // -----------------------
+    // CAROUSEL FOR FUN FACTS & TESTIMONIALS (BASIC AUTO-ROTATE)
+    // -----------------------
+    function rotateCarousel(containerClass) {
+      const items = document.querySelectorAll(`.${containerClass} .${containerClass === 'fun-facts' ? 'fun-fact' : 'testimonial'}`);
+      let currentIndex = 0;
+      setInterval(() => {
+        items[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % items.length;
+        items[currentIndex].classList.add('active');
+      }, 4000);
+    }
+    rotateCarousel('fun-facts');
+    rotateCarousel('testimonials');
   </script>
-
 </body>
 </html>
