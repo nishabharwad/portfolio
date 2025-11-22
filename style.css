@@ -1,6 +1,10 @@
 /* -------------------------------------------- */
-/* 🔮 GLOBAL + BACKGROUND                       */
+/* GLOBAL + BACKGROUND                          */
 /* -------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -53,7 +57,7 @@ body::before {
 .bubble3 { bottom: 30%; left: 20%; }
 
 /* -------------------------------------------- */
-/* WRAPPER / SCREEN BOX                          */
+/* WRAPPER / SCREEN BOX                         */
 /* -------------------------------------------- */
 
 .wrapper {
@@ -69,7 +73,7 @@ body::before {
 }
 
 /* -------------------------------------------- */
-/* STICKERS                                      */
+/* STICKERS                                     */
 /* -------------------------------------------- */
 
 .sticker {
@@ -95,11 +99,22 @@ body::before {
 .sticker2 { top: 5px; right: 15px; }
 .sticker3 { bottom: 5px; left: 15px; }
 .sticker4 { bottom: 5px; right: 15px; }
-.sticker5 { top: 50%; left: -10px; transform: rotate(-90deg); font-size: 0.9rem; background: linear-gradient(45deg, #90EE90, #98FB98); }
-.sticker6 { bottom: 40%; right: -10px; transform: rotate(90deg); background: linear-gradient(45deg, #87CEEB, #ADD8E6); }
+.sticker5 {
+  top: 50%;
+  left: -10px;
+  transform: rotate(-90deg);
+  font-size: 0.9rem;
+  background: linear-gradient(45deg, #90EE90, #98FB98);
+}
+.sticker6 {
+  bottom: 40%;
+  right: -10px;
+  transform: rotate(90deg);
+  background: linear-gradient(45deg, #87CEEB, #ADD8E6);
+}
 
 /* -------------------------------------------- */
-/* TOPBAR                                        */
+/* TOPBAR                                       */
 /* -------------------------------------------- */
 
 .topbar {
@@ -124,7 +139,7 @@ body::before {
 }
 
 /* -------------------------------------------- */
-/* HEADER                                        */
+/* HEADER                                       */
 /* -------------------------------------------- */
 
 header {
@@ -178,7 +193,7 @@ h1 {
 }
 
 /* -------------------------------------------- */
-/* LAYOUT                                        */
+/* LAYOUT                                       */
 /* -------------------------------------------- */
 
 .main {
@@ -200,7 +215,7 @@ h1 {
 }
 
 /* -------------------------------------------- */
-/* BOXES                                         */
+/* BOXES                                        */
 /* -------------------------------------------- */
 
 .box {
@@ -261,7 +276,7 @@ h1 {
 }
 
 /* -------------------------------------------- */
-/* ABOUT                                         */
+/* ABOUT                                        */
 /* -------------------------------------------- */
 
 .about img {
@@ -278,7 +293,7 @@ h1 {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #FFF8DC;
   background: #FF8C00;
   padding: 6px 10px;
@@ -297,21 +312,6 @@ h1 {
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: justify;
-  border-right: 2px dashed #00CED1;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.about p::after {
-  content: '💕';
-  animation: cursorBlink 1s infinite;
-  margin-left: 2px;
-  color: #FF69B4;
-}
-
-@keyframes cursorBlink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
 }
 
 /* -------------------------------------------- */
@@ -502,51 +502,6 @@ h1 {
 }
 
 /* -------------------------------------------- */
-/* NEWSLETTER (in links box)                    */
-/* -------------------------------------------- */
-
-.newsletter {
-  text-align: center;
-  margin-top: 12px;
-  padding: 10px;
-  background: rgba(144,238,144,0.8);
-  border: 2px dashed #98FB98;
-  border-radius: 18px;
-}
-
-.newsletter h3 {
-  margin: 0 0 8px;
-  color: #FF8C00;
-}
-
-.newsletter h3::before {
-  content: '📤 ';
-}
-
-.newsletter form {
-  display: flex;
-  gap: 5px;
-}
-
-.newsletter input {
-  flex: 1;
-  padding: 8px;
-  border: 2px dashed #00CED1;
-  border-radius: 10px;
-  background: rgba(255,248,220,0.9);
-}
-
-.newsletter button {
-  padding: 8px 10px;
-  background: #98FB98;
-  color: #333;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* -------------------------------------------- */
 /* DECO / FLOATING IMAGES                       */
 /* -------------------------------------------- */
 
@@ -564,12 +519,12 @@ h1 {
   50% { transform: translateY(-12px) rotate(3deg); }
 }
 
-.deco1 { top: 25%; left: 5%; --speed: 0.3; }
-.deco2 { top: 45%; right: 5%; --speed: 0.4; }
-.deco3 { bottom: 25%; left: 10%; --speed: 0.5; }
+.deco1 { top: 25%; left: 5%; }
+.deco2 { top: 45%; right: 5%; }
+.deco3 { bottom: 25%; left: 10%; }
 
 /* -------------------------------------------- */
-/* FOOTER                                        */
+/* FOOTER                                       */
 /* -------------------------------------------- */
 
 footer {
@@ -586,7 +541,7 @@ footer {
 }
 
 /* -------------------------------------------- */
-/* STICKY CTA                                    */
+/* STICKY CTA                                   */
 /* -------------------------------------------- */
 
 .sticky-cta {
@@ -621,7 +576,7 @@ footer {
 }
 
 /* -------------------------------------------- */
-/* MODAL                                         */
+/* MODAL                                        */
 /* -------------------------------------------- */
 
 .modal {
@@ -710,7 +665,7 @@ footer {
 }
 
 /* -------------------------------------------- */
-/* TOAST                                         */
+/* TOAST                                        */
 /* -------------------------------------------- */
 
 .toast {
@@ -733,7 +688,7 @@ footer {
 }
 
 /* -------------------------------------------- */
-/* RESPONSIVE / MOBILE                           */
+/* RESPONSIVE / MOBILE                          */
 /* -------------------------------------------- */
 
 @media (max-width: 768px) {
@@ -775,10 +730,6 @@ footer {
 
   .deco {
     width: 50px;
-  }
-
-  .newsletter form {
-    flex-direction: column;
   }
 
   .wrapper {
