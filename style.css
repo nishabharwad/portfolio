@@ -16,53 +16,6 @@ body {
   background-attachment: fixed;
 }
 
-.cloud-header {
-  position: relative;
-  padding: 50px 20px;
-  text-align: center;
-  margin: 20px auto;
-  overflow: hidden;
-}
-
-.cloud-title {
-  font-family: 'Gaegu';
-  font-size: 4rem;
-  color: #ff8acb;
-  margin: 0;
-  z-index: 10;
-  position: relative;
-  text-shadow: 0 0 10px rgba(255,150,200,0.6);
-}
-
-.cloud-sub {
-  font-family: 'Comic Neue';
-  font-size: 1.3rem;
-  color: #ffb4da;
-  margin-top: 5px;
-  position: relative;
-  z-index: 10;
-}
-
-/* clouds */
-.cloud {
-  position: absolute;
-  width: 250px;
-  height: 80px;
-  background: rgba(255,255,255,0.7);
-  border-radius: 50px;
-  filter: blur(2px);
-  animation: floatCloud 12s linear infinite;
-}
-
-.c1 { top: 10px; left: -200px; animation-delay: 0s; }
-.c2 { top: 50px; left: -300px; width: 300px; animation-delay: 3s; }
-.c3 { top: 90px; left: -250px; width: 200px; animation-delay: 6s; }
-
-@keyframes floatCloud {
-  from { transform: translateX(0); }
-  to { transform: translateX(1600px); }
-}
-
 /* light fog overlay */
 body::before {
   content: '';
@@ -847,3 +800,36 @@ footer {
   z-index: 100;
   display: none;
 }
+.cute-window {
+  width: 100%;
+  padding-top: 5px;
+}
+
+.window-top {
+  background: linear-gradient(90deg, #ffe4f7, #d4f9ff);
+  padding: 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px dashed #FF69B4;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+.window-top p {
+  font-family: 'Gaegu';
+  font-size: 1.4rem;
+  color: #FF69B4;
+  margin: 0;
+}
+
+.w-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.pink { background: #FF8CCF; }
+.blue { background: #87CEFA; }
+.mint { background: #98FFCD; }
